@@ -62,6 +62,9 @@ getButtton.addEventListener("click", e => {
     let tempCode = fromCurrency.value; // código de moneda temporal de la lista desplegable DESDE:
     fromCurrency.value = toCurrency.value; // pasar el código de moneda A: al código de moneda DESDE:
     toCurrency.value = tempCode; // pasar el código de moneda temporal al código de moneda A:
+
+    cargaBandera(fromCurrency); // llamando cargaBandera seleccionando el elemento fromCurrency de DESDE:
+    cargaBandera(toCurrency); // llamando cargaBandera seleccionando el elemento toCurrency de A:
     getExchangeRate();
     
   });
@@ -87,5 +90,11 @@ function getExchangeRate(){
     let totalExchangeRate = (montoValor * exchangerate).toFixed(2);
     
     exchangeRateTxt.innerText = `${montoValor} ${fromCurrency.value} = ${totalExchangeRate} ${toCurrency.value}`;
-  })
+
+
+  }).catch(() =>{
+    exchangeRateTxt.innerText = "Algo ha salido mal...";
+  });
+  // si el usuario esta offline u otra error ocurre cuando se esta leyendo los datos entonces la funcion catch se ejecutara
+
 } 

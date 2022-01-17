@@ -10,11 +10,11 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #06013f;
+  background-image: linear-gradient( 110.1deg,  rgba(34,126,34,1) 2.9%, rgba(168,251,60,1) 90.3% );;
 }
 
 .wrapper {
-  background-color: #fff;
+  background-color: #ffffff;
   width: 370px;
   padding: 30px;
   border-radius: 7px;
@@ -24,8 +24,9 @@ body {
 
 .wrapper header {
   font-size: 28px;
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
+  text-decoration: underline;
 }
 
 .wrapper form {
@@ -110,8 +111,12 @@ form .exchange-rate {
 
 form button {
   height: 52px;
-  color: #fff;
-  background-color: #675AFE;
+  color: rgb(255, 238, 0);
+  background-color: #000000;
   font-size: 17px;
   cursor: pointer;
+}
+
+form button:hover {
+  background-image: linear-gradient( 109.6deg,  rgba(14,11,56,1) 11.2%, rgba(239,37,37,1) 91.1% );
 }
