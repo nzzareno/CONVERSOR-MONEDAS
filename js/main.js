@@ -1,7 +1,11 @@
+
+
 const dropList = document.querySelectorAll(".drop-list select");
 let getButtton = document.querySelector("form button");
  fromCurrency = document.querySelector(".from select");
  toCurrency = document.querySelector(".to select");
+
+
 
 for (let i = 0; i < dropList.length; i++) {
 
@@ -19,11 +23,28 @@ for (let i = 0; i < dropList.length; i++) {
 
     let optionTag = `<option value="${currency_code}"${selected}>${currency_code}</option>`;
     dropList[i].insertAdjacentHTML("beforeend", optionTag);
+  
+  
   }
+    dropList[i].addEventListener("change", e => {
+      cargaBandera(e.target); // LLAMANDO cargaBandera PASANDO EL ELEMENTO TARGE COMO UN ARGUMENTO
+    });
 
 }
+
+function cargaBandera(element){
+    for (code in country_code){
+      if(code == element.value){ // si el código de moneda de la lista de países es igual al valor de la opción
+        let imgTag = element.parentElement.querySelector("img");
+        // SELECCIONANDO UNA ETIQUETA IMAGEN DE UNA LISTA PARTICULAR DESPLEGABLE
+        imgTag.src = `https://countryflagsapi.com/png/${country_code[code]}` 
+        
+      }
+    }
+}
+
 window.addEventListener("load", () => {
- // IMPIDIENDO QUE EL FORMULARIO SE ENVIE
+
 getExchangeRate();
 });
 
@@ -33,9 +54,23 @@ getButtton.addEventListener("click", e => {
   getExchangeRate();
   });
 
+
+
+  const exchangeIcon = document.querySelector(".drop-list .icon");
+  exchangeIcon.addEventListener("click", () => {
+    
+    let tempCode = fromCurrency.value; // código de moneda temporal de la lista desplegable DESDE:
+    fromCurrency.value = toCurrency.value; // pasar el código de moneda A: al código de moneda DESDE:
+    toCurrency.value = tempCode; // pasar el código de moneda temporal al código de moneda A:
+    getExchangeRate();
+    
+  });
+  
+  
+
 function getExchangeRate(){
   const monto = document.querySelector(".monto input"),
-  exchangeRateTxt = document.querySelector(".radio-cambio");
+  exchangeRateTxt = document.querySelector(".exchange-rate");
   let montoValor = monto.value;
   //SI EL USUARIO NO PONE NINGUN VALOR O SI PONE CERO ENTONCES SE PONDRA 1 COMO EL VALOR POR DEFECTO EN EL APARTADO DE EL INPUT
   if(montoValor == "" || montoValor == "0") {
