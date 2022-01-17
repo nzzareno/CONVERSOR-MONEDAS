@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONVERSOR DE MONEDAS</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+  
+<div class="wrapper">
+  <header>CONVERSOR DE MONEDAS</header>
+  <form action="#">
+    <div class="amout">
+      <p>INGRESA EL MONTO</p>
+      <input type="text" value="1">
+    </div>
+    <div class="drop-list">
+      <div class="from">
+        <p>DE:</p>
+        <div class="select-box">
+          <img src="./img/us.jpg" alt="bandera">
+          <select>
+            <option value="USD">USD</option>
+            <option value="NPR">NPR</option>
+            <option value="INR">INR</option>
+            <option value="PKR">PKR</option>
+            <option value="MAD">MAD</option>
+          </select>
+        </div>
+      </div>
+      <div class="icon"><i class="fas fa-exchange-alt"></i></div>
+      <div class="to">
+        <p>A:</p>
+        <div class="select-box">
+          <img src="./img/np.jpg" alt="bandera">
+          <select>
+            <option value="USD">USD</option>
+            <option value="NPR">NPR</option>
+            <option value="INR">INR</option>
+            <option value="PKR">PKR</option>
+            <option value="MAD">MAD</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="exchange-rate">1 USD = 118.16 NPR</div>
+    <button>OBTENER TIPO DE CAMBIO</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+  <script src="./js/paises-lista.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
